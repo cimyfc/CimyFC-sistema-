@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cimy FC — Gestão do Time</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>⚽ Cimy FC</h1>
+      <p>Sistema de gestão do time</p>
+    </div>
+    <button id="exportBtn" class="secondary">Exportar dados</button>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="dashboard">Início</button>
+    <button class="tab" data-tab="players">Jogadores</button>
+    <button class="tab" data-tab="ids">Registros / IDs</button>
+    <button class="tab" data-tab="warnings">Advertências</button>
+    <button class="tab" data-tab="videos">Vídeos</button>
+  </nav>
+
+  <main>
+    <section id="dashboard" class="tab-content active">
+      <h2>Painel</h2>
+      <div class="cards">
+        <div class="card"><span id="countPlayers">0</span><small>Jogadores</small></div>
+        <div class="card"><span id="countIds">0</span><small>Registros / IDs</small></div>
+        <div class="card"><span id="countWarnings">0</span><small>Advertências</small></div>
+        <div class="card"><span id="countVideos">0</span><small>Vídeos agendados</small></div>
+      </div>
+      <div class="panel">
+        <h3>Como usar</h3>
+        <p>Cadastre os jogadores, registre ocorrências/IDs, coloque advertências na ficha de cada jogador e agende as ideias de vídeos.</p>
+        <p><strong>Os dados ficam salvos neste navegador.</strong> Use “Exportar dados” para fazer uma cópia de segurança.</p>
+      </div>
+    </section>
+
+    <section id="players" class="tab-content">
+      <div class="section-head">
+        <h2>Jogadores</h2>
+        <button class="primary" onclick="openPlayerModal()">+ Adicionar jogador</button>
+      </div>
+      <div id="playersList" class="list"></div>
+    </section>
+
+    <section id="ids" class="tab-content">
+      <div class="section-head">
+        <h2>Registros / IDs</h2>
+        <button class="primary" onclick="openRecordModal()">+ Novo registro</button>
+      </div>
+      <p class="hint">Use esta área para registrar IDs, ocorrências, partidas ou outras informações importantes.</p>
+      <div id="recordsList" class="list"></div>
+    </section>
+
+    <section id="warnings" class="tab-content">
+      <div class="section-head">
+        <h2>Advertências</h2>
+        <button class="primary" onclick="openWarningModal()">+ Nova advertência</button>
+      </div>
+      <div id="warningsList" class="list"></div>
+    </section>
+
+    <section id="videos" class="tab-content">
+      <div class="section-head">
+        <h2>Agenda de vídeos</h2>
+        <button class="primary" onclick="openVideoModal()">+ Agendar vídeo</button>
+      </div>
+      <div id="videosList" class="list"></div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <button class="close" onclick="closeModal()">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <input type="file" id="importFile" accept=".json" hidden>
+  <script src="script.js"></script>
+</body>
+</html>
