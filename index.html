@@ -12,7 +12,7 @@
       <h1>⚽ Cimy FC</h1>
       <p>Sistema de gestão do time</p>
     </div>
-    <button id="exportBtn" class="secondary">Exportar dados</button>
+    <div class="header-actions"><span id="cloudStatus" class="cloud-status">Conectando...</span><button id="logoutBtn" class="secondary">Sair</button><button id="exportBtn" class="secondary">Exportar dados</button></div>
   </header>
 
   <nav class="tabs">
@@ -23,7 +23,17 @@
     <button class="tab" data-tab="videos">Vídeos</button>
   </nav>
 
-  <main>
+  <section id="loginPanel" class="login-panel hidden">
+    <div class="panel">
+      <h2>Acesso ao Cimy FC</h2>
+      <p>Entre com sua conta para usar os dados compartilhados.</p>
+      <label>E-mail</label><input id="loginEmail" type="email" placeholder="seuemail@exemplo.com" autocomplete="email">
+      <label>Senha</label><input id="loginPassword" type="password" placeholder="Mínimo de 6 caracteres" autocomplete="current-password">
+      <div class="form-actions"><button id="loginBtn" class="primary">Entrar</button><button id="signupBtn" class="secondary">Criar conta</button></div>
+    </div>
+  </section>
+
+  <main id="appContent">
     <section id="dashboard" class="tab-content active">
       <h2>Painel</h2>
       <div class="cards">
@@ -35,7 +45,7 @@
       <div class="panel">
         <h3>Como usar</h3>
         <p>Cadastre os jogadores, registre ocorrências/IDs, coloque advertências na ficha de cada jogador e agende as ideias de vídeos.</p>
-        <p><strong>Os dados ficam salvos neste navegador.</strong> Use “Exportar dados” para fazer uma cópia de segurança.</p>
+        <p><strong>Os dados ficam salvos online.</strong> Assim, quem entrar com uma conta poderá ver as mesmas informações.</p>
       </div>
     </section>
 
